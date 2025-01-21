@@ -8,9 +8,13 @@ build:
 
 .PHONY: publish
 publish:
-	npm run docs:build
 	git add .
 	git commit -m "update"
 	git push
+	git checkout websites
+	git pull
+	git merge master
 	rm -rf ./websites/*
+	npm run docs:build
+	git push
 
