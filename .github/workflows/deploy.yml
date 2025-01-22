@@ -10,17 +10,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 检出代码
-    - name: Checkout code
-      uses: actions/checkout@v3
-      with: 
-        repository: ${{ github.repository }}
-        ref: "websites"
-        token: ${{ secrets.GITHUB_TOKEN }}
-        
-    # 设置 GitHub Pages 的发布路径
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup Git
+      run: |
+        git config user.name "${{ github.actor }}"
+        git config user.email "${{ github.actor }}@users.noreply.github.com"
+
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: .
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        if ! git ls-remote --exit-code --heads origin gh-pages; then
+          git checkout --orphan gh-pages
+          git reset --hard
+          git commit --allow-empty -m "Initial gh-pages commit"
+          git push origin gh-pages
+        else
+          git checkout gh-pages
+        fi
+        # Add your build and deploy commands here
+        git add --all
+        git commit -m "Deploy to GitHub Pages"
+        git push origin gh-pages
