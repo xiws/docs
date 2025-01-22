@@ -13,7 +13,7 @@ publish:
 	git push
 	git checkout websites
 	git pull
-	git merge master
+	git merge main
 	rm -rf ./websites/*
 	npm run docs:build
 	git add .
