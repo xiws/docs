@@ -16,5 +16,7 @@ publish:
 	git merge master
 	rm -rf ./websites/*
 	npm run docs:build
+	git add .
+	git commit -m "update"
 	git push
 
