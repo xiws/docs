@@ -6,6 +6,12 @@ all:
 build:
 	npm run docs:build
 
+.phony: push
+push:
+	git add .
+	git commit -m "update"
+	git push
+
 .PHONY: publish
 publish:
 	git add .
