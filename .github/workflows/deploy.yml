@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy HTML files to GitHub Pages
 
 on:
   push:
@@ -8,29 +8,19 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      # 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: websites
 
-    - name: Setup Git
-      run: |
-        git config user.name "${{ github.actor }}"
-        git config user.email "${{ github.actor }}@users.noreply.github.com"
-
-    - name: Deploy to GitHub Pages
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        if ! git ls-remote --exit-code --heads origin gh-pages; then
-          git checkout --orphan gh-pages
-          git reset --hard
-          git commit --allow-empty -m "Initial gh-pages commit"
-          git push origin gh-pages
-        else
-          git checkout gh-pages
-        fi
-        # Add your build and deploy commands here
-        git add --all
-        git commit -m "Deploy to GitHub Pages"
-        git push origin gh-pages
+      # 部署到GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./websites
+          destination_dir: /root
+          keep_files: false
+          force_orphan: true
