@@ -20,7 +20,7 @@ publish:
 	git checkout websites
 	git pull
 	git merge main
-	rm -rf ./websites/*
+	rm -rf ./docs/*
 	npm run docs:build
 	git add .
 	git commit -m "update"
