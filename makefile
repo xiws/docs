@@ -13,10 +13,7 @@ push:
 	git push
 
 .PHONY: publish
-publish:
-	git add .
-	git commit -m "update"
-	git push
+publish: push
 	git checkout websites
 	git pull
 	git merge main
