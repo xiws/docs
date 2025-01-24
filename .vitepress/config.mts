@@ -25,5 +25,6 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ]
   },
-  outDir: "./websites"
+  outDir: "./docs",
+  base: './', // 设置 base 为相对路径
 })

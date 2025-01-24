@@ -6,15 +6,18 @@ all:
 build:
 	npm run docs:build
 
-.PHONY: publish
-publish:
+.phony: push
+push:
 	git add .
 	git commit -m "update"
 	git push
+
+.PHONY: publish
+publish: push
 	git checkout websites
 	git pull
-	git merge master
-	rm -rf ./websites/*
+	git merge main
+	rm -rf ./docs/*
 	npm run docs:build
 	git add .
 	git commit -m "update"
