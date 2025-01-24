@@ -6,9 +6,20 @@ export default defineConfig({
   description: "A VitePress Site",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    logo: 'assets/logo.svg',
+    search: {
+      provider: 'local'
+    },
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      {
+        text: 'Dropdown Menu',
+        items: [
+          { text: 'Item A', link: '/item-1' },
+          { text: 'Item B', link: '/item-2' },
+          { text: 'Item C', link: '/item-3' }
+        ]
+      }
     ],
 
     sidebar: [
@@ -22,7 +33,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/xiws/docs' }
     ]
   },
   outDir: "./docs",
