@@ -26,5 +26,5 @@ export default defineConfig({
     ]
   },
   outDir: "./docs",
-  base: '/', // 设置 base 为相对路径
+  base: '/docs', // 设置 base 为相对路径
 })
