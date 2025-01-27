@@ -1,4 +1,7 @@
 import { defineConfig } from 'vitepress'
+import {sidebarConfig} from './sidebarConfig'
+
+var list='[{text:database,items:[{text: test,link:./docs/database/test.md}]},{text:test,items:[{text:test.md,link:./docs/test/test.md}]}]';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -22,15 +25,7 @@ export default defineConfig({
       }
     ],
 
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
+    sidebar: sidebarConfig,
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/xiws/docs' }
