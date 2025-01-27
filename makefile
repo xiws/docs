@@ -1,5 +1,5 @@
 
-SyncResult = $(shell  DirStructEcho ./docs);
+SyncResult = $(shell  DirStructEcho ./Skill);
 
 
 default: all
