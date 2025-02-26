@@ -23,7 +23,7 @@ Sync:
 
 
 .PHONY: publish
-publish: push Sync
+publish: Sync push 
 	git add .
 	git commit -m "update"
 	git push
