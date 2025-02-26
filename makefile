@@ -1,3 +1,7 @@
+
+SyncResult = $(shell  DirStructEcho -path="./Skill");
+
+
 default: all
 all: 
 	npm run docs:dev
@@ -12,8 +16,14 @@ push:
 	git commit -m "update"
 	git push
 
+.PHONY: Sync
+Sync:
+	echo 'var list=$(SyncResult);' > .vitepress/sidebarConfig.js
+	echo "export const sidebarConfig = list;" >> .vitepress/sidebarConfig.js
+
+
 .PHONY: publish
-publish: push
+publish: Sync push 
 	git checkout websites
 	git pull
 	git merge main
