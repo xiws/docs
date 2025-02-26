@@ -36,7 +36,7 @@
 通过行多版本控制（multi versioning）的方式来读取当前执行时间数据库中
 行的数据。如果读取的行正在执行DELETE或UPDATE操作，这时读取操作不会
 因此去等待行上锁的释放。相反地，InnoDB存储引擎会去读取行的一个快照数据
-![](attachments/Pasted%20image%2020240528165540.png)
+![](./attachments/Pasted%20image%2020240528165540.png)
 
 1. 事务隔离级别（读提交）READ COMMITTED 时，非锁定读读取最新的一份快照
 2. 事务隔离级别（可重复读） REPEATABLE READ 时，非锁定读 读取事务开始时的行数据版本
