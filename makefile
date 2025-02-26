@@ -24,6 +24,9 @@ Sync:
 
 .PHONY: publish
 publish: push Sync
+	git add .
+	git commit -m "update"
+	git push
 	git checkout websites
 	git pull
 	git merge main
