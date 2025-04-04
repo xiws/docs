@@ -1,0 +1,35 @@
+#cloud-config
+hostname: xiwpc
+manage_etc_hosts: true
+timezone: Asia/Shanghai  # 设置时区
+
+users:
+  - name: xiw
+    uid: 1000
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, sudo
+    home: /home/xiw
+    shell: /bin/bash
+    lock_passwd: false
+    passwd: $6$7jB38fyftpWeL4Lb$UlRdXYOiciiOd6ixzzrn7O4kaOJI3NfgxMXzqIHHTv3ASujqd3t.GkBQn1pBJduzPUGjEL4mBWKD30f5dYstL1
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCusOwS7KZPu0eTZC8X/n7CS7AfnQjMiK6UZtWHfKomuxTK+trp/KzHTAzEghvfFMMMKi+zlG1K5tgolErYtZL+k2+BuyseANBlubCL/WkZ2zBRSYAkmtnqu5ALn6Nt9BbER51Py6AzrzPbPd4xSA4EOA4R51zDKHe3/dnmEy6tqxVCxZKEJ6T4CKfJQQteXaQ/S7WTYgOY6AoC4Rwq2lwAf6ZDMmV9+optR9V96JoGSjyz+fKadfZfeSERONRjmi+QdzvmzVCDUQ6zmylYAcJBSaL4hrw/CJTvT1J6OEKEXGoFCAhehMS6k1huVeNfWaGGsE3RdOOG0LM2RH2Wrula1fnEztLdLGYoI0EHXQUQ5Km31mrcf7JBiU3czy+6xGAHIBAqKo9s3B9Qxv914aeVa9TIEevbnFXwXT9owpMVblePk07HPS3od1TYZA2Ct9S8wkGvRI3Fq6oNJkyVvbbz6ICCejo438kG8n0xCPQyxbPPk5vvWeDCKOTYQI3u5JQWsAid/H1YY1RjR2QbpVgQgNiU9m+RW7xMArZiBPq3r9uFpczmWiVIaxXaOb1/XHZr/Guzul2bRuOuiqgAhJNrbjk4lXguYfowCD+RRZZUz2TJie5g/vZni97NmY5F9CSLIvW32Sa/fztN1zDr4nqsSCz8+invRztkhm9WzP5cJQ== zhongxiwang@live.com
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDdYsg/rgXg/7tqmwlS6tqVzH4VBh3hnqDHpospVO9S78bGNoXwJv9Io1Xmtl0IsVZrrCUdrk0EcTMDkeFW7ebjVc9syd9pYpm7ZXKgD9IDJ4T5h/OwUCQY4oavhhX24QXKCH4BgiGTMvLdnPPLJ1tJ53rpZZnvRKMjs3+mkBa74Uvrg38S4xOCeEUw0TrOE5GbjSyrNuTfyxfWXW85hpteNGBvLFRdlJyG+CiTc6JugZ8AYk4DI1FGgED2S+HIdmuB1Xcv81qgAYj/MYgp4mpE1Mv5+gDkuJVWSHwK926Au0Te/OD5xJy2qUa5w99XCPR6x65CLV+byfyf6EQ26NjjushvUg5WL8FaQn2w/K+fK/QxZWfG9DNjUmxiouTAmKR46Abp5SylNUXBwQ+9OCoMlKLqbhokaxyaD/HE2O2G+8fo1MJpcEOsK3muaH702CLrovyp32B/V/2ptpNtg6MaRzd8CrKwXGZDQiJoQie6aDHYkg7xbhLdzXIJnMfn1WYE7rN3CSQ9k6i/BqAGHBMKyDfWyqrCTe7w0SxA8LBiTwh9ZQIHnyV70b4rG+VTZDhBRZvn5RsJG5gaq+1RWE7+bOLlbploCXGy9L3NUAI0ZiZ5TgWlxrZRbb0EraP/qjC5MDteO4QzXtoHxOr9XMGD70ZISF8rs/YJCd79FIFDnQ== zhongxiwnag@foxmail.com
+  
+  - name: root
+    uid: 1000
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, sudo
+    home: /root
+    shell: /bin/bash
+    lock_passwd: false
+    passwd: $6$7jB38fyftpWeL4Lb$UlRdXYOiciiOd6ixzzrn7O4kaOJI3NfgxMXzqIHHTv3ASujqd3t.GkBQn1pBJduzPUGjEL4mBWKD30f5dYstL1
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCusOwS7KZPu0eTZC8X/n7CS7AfnQjMiK6UZtWHfKomuxTK+trp/KzHTAzEghvfFMMMKi+zlG1K5tgolErYtZL+k2+BuyseANBlubCL/WkZ2zBRSYAkmtnqu5ALn6Nt9BbER51Py6AzrzPbPd4xSA4EOA4R51zDKHe3/dnmEy6tqxVCxZKEJ6T4CKfJQQteXaQ/S7WTYgOY6AoC4Rwq2lwAf6ZDMmV9+optR9V96JoGSjyz+fKadfZfeSERONRjmi+QdzvmzVCDUQ6zmylYAcJBSaL4hrw/CJTvT1J6OEKEXGoFCAhehMS6k1huVeNfWaGGsE3RdOOG0LM2RH2Wrula1fnEztLdLGYoI0EHXQUQ5Km31mrcf7JBiU3czy+6xGAHIBAqKo9s3B9Qxv914aeVa9TIEevbnFXwXT9owpMVblePk07HPS3od1TYZA2Ct9S8wkGvRI3Fq6oNJkyVvbbz6ICCejo438kG8n0xCPQyxbPPk5vvWeDCKOTYQI3u5JQWsAid/H1YY1RjR2QbpVgQgNiU9m+RW7xMArZiBPq3r9uFpczmWiVIaxXaOb1/XHZr/Guzul2bRuOuiqgAhJNrbjk4lXguYfowCD+RRZZUz2TJie5g/vZni97NmY5F9CSLIvW32Sa/fztN1zDr4nqsSCz8+invRztkhm9WzP5cJQ== zhongxiwang@live.com
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDdYsg/rgXg/7tqmwlS6tqVzH4VBh3hnqDHpospVO9S78bGNoXwJv9Io1Xmtl0IsVZrrCUdrk0EcTMDkeFW7ebjVc9syd9pYpm7ZXKgD9IDJ4T5h/OwUCQY4oavhhX24QXKCH4BgiGTMvLdnPPLJ1tJ53rpZZnvRKMjs3+mkBa74Uvrg38S4xOCeEUw0TrOE5GbjSyrNuTfyxfWXW85hpteNGBvLFRdlJyG+CiTc6JugZ8AYk4DI1FGgED2S+HIdmuB1Xcv81qgAYj/MYgp4mpE1Mv5+gDkuJVWSHwK926Au0Te/OD5xJy2qUa5w99XCPR6x65CLV+byfyf6EQ26NjjushvUg5WL8FaQn2w/K+fK/QxZWfG9DNjUmxiouTAmKR46Abp5SylNUXBwQ+9OCoMlKLqbhokaxyaD/HE2O2G+8fo1MJpcEOsK3muaH702CLrovyp32B/V/2ptpNtg6MaRzd8CrKwXGZDQiJoQie6aDHYkg7xbhLdzXIJnMfn1WYE7rN3CSQ9k6i/BqAGHBMKyDfWyqrCTe7w0SxA8LBiTwh9ZQIHnyV70b4rG+VTZDhBRZvn5RsJG5gaq+1RWE7+bOLlbploCXGy9L3NUAI0ZiZ5TgWlxrZRbb0EraP/qjC5MDteO4QzXtoHxOr9XMGD70ZISF8rs/YJCd79FIFDnQ== zhongxiwnag@foxmail.com
+
+ssh_pwauth: true
+
+runcmd:
+  - sudo apt install net-tools
+  
